@@ -12,7 +12,7 @@
         }, {
             id: "day",
             alias: "Stan",
-            dataType: tableau.dataTypeEnum.string
+            dataType: tableau.dataTypeEnum.int
         }, {
            id: "month",
            alias: "Zarażeni",
@@ -41,12 +41,12 @@
   {
           id: "geoID",
            alias:"geoID",
-          dataType: tableau.dataTypeEnum.int
+          dataType: tableau.dataTypeEnum.string
 },
 {
          id: "countryterritoryCode",
          alias:"Kod kraju",
-          dataType: tableau.dataTypeEnum.int
+          dataType: tableau.dataTypeEnum.string
 },
 {
           id: "dopData2019",
@@ -63,7 +63,7 @@
           dataType: tableau.dataTypeEnum.int
 }, ];
         var tableSchema = {
-            id: "OpenPuglia",
+            id: "opendata",
             alias: "Dane dotyczące COVID-19",
             columns: cols
         };
@@ -82,16 +82,16 @@
             for (var i = 0; i < data.length; i++) {
                 tableData.push({
                     "dataRep":data[i]["dataRep"],  // metti in data la response al campo "data"
-                    "day":data[i]["stato"],
-                    "month":data[i]["ricoverati con sintomi"],
-                    "years":data[i]["terapia intensiva"],
-                    "cases":data[i]["totale ospedalizzati"],
-                    "countriesAndTerritories":data[i]["isolamento domiciliare"],
-                    "geoID":data[i]["totale positivi"],
-                    "countryterritoryCode":data[i]["variazione totale positivi"],
-                    "popData2019":data[i]["nuovi positivi"],
-                    "continentExp":data[i]["dimessi guariti"],
-                    "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":data[i]["deceduti"],
+                    "day":data[i]["day"],
+                    "month":data[i]["month"],
+                    "years":data[i]["years"],
+                    "cases":data[i]["cases"],
+                    "countriesAndTerritories":data[i]["countriesAndTerritories"],
+                    "geoID":data[i]["geoID"],
+                    "countryterritoryCode":data[i]["ountryterritoryCode"],
+                    "popData2019":data[i]["popData2019"],
+                    "continentExp":data[i]["ontinentExp"],
+                    "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":data[i]["dCumulative_number_for_14_days_of_COVID-19_cases_per_100000"],
                     
                 });
             }
