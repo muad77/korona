@@ -58,7 +58,7 @@
          dataType: tableau.dataTypeEnum.int
 },
  {
-         id: "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000",
+          id: "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000",
           alias:"14 dni per 100k",
           dataType: tableau.dataTypeEnum.int
 }, ];
