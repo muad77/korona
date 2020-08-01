@@ -4,9 +4,13 @@
 
     myConnector.getSchema = function(schemaCallback) {
         var cols = [
-        
+            
             {id:"deaths", alias: "Fatalidades", dataType: tableau.dataTypeEnum.float},
+            
+            
+            
            
+        ];
 
   
         var tableSchema = {
@@ -28,9 +32,9 @@
       
             for (var i = 1, len = feat.length; i < len; i++) {  
               tableData.push({  
-         
-                "death_rate": feat[i].death_rate,
-               
+       
+                "deaths": feat[i].deaths,
+                
               });  
             }  
    
