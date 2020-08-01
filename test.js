@@ -15,7 +15,7 @@
   
         var tableSchema = {
             id: "Covid_19",
-            alias: "Casos-19",
+            alias: "covid19",
             columns: cols
         };
 
@@ -59,7 +59,7 @@
 
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Casos do coronavírus por município por dia"; 
+            tableau.connectionName = "covid19"; 
             tableau.submit(); 
         });
     });
