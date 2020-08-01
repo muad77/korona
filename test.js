@@ -5,11 +5,9 @@
     myConnector.getSchema = function(schemaCallback) {
         var cols = [
             
-            {id:"deaths", alias: "Fatalidades", dataType: tableau.dataTypeEnum.float},
-            
-            
-            
-           
+            {id:"deaths", 
+            alias: "Zgony", 
+            dataType: tableau.dataTypeEnum.int},    
         ];
 
   
