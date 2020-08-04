@@ -9,12 +9,14 @@
             id: "dataRep",
             alias:"Data",
             dataType: tableau.dataTypeEnum.date
-        }, ];
+        }];
+        
         var tableSchema = {
-            id: "covid19",
-            alias: "covid19",
+            id: "Covid19",
+            alias: "Dane o pandemii",
             columns: cols
-        };
+        }; 
+       
 
         schemaCallback([tableSchema]);
     };

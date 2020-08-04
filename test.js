@@ -1,64 +1,31 @@
 (function() {
- 
-    var myConnector = tableau.makeConnector();
+    // Create the connector object
 
-    myConnector.getSchema = function(schemaCallback) {
-        var cols = [
-            
-            {id:"deaths", 
-            alias: "Zgony", 
-            dataType: tableau.dataTypeEnum.int},    
-        ];
+   var myConnector = tableau.makeConnector();
 
-  
-        var tableSchema = {
-            id: "Covid_19",
-            alias: "covid19",
-            columns: cols
-        };
+    // Define the schema
+   myConnector.getSchema = function(schemaCallback) {
+      var cols = [{
+          id: "dataRep",
+          alias:"Data",
+          dataType: tableau.dataTypeEnum.date
+      }, ];
+      var tableSchema = {
+          id: "covid19",
+          alias: "covid19",
+          columns: cols
+      };
 
-        schemaCallback([tableSchema]);
-    };
-
-    myConnector.getData = function(table, doneCallback) {  
-        function getAllData(url) {  
-          $.getJSON(url, function(resp) {  
-            var feat = resp.results,  
-              next = resp.next;  
-      
-          
-      
-            for (var i = 1, len = feat.length; i < len; i++) {  
-              tableData.push({  
-       
-                "deaths": feat[i].deaths,
-                
-              });  
-            }  
-   
-            if (next !== null) {  
-              getAllData(next);  
-            } else {  
-              table.appendRows(tableData);  
-              doneCallback();  
-            }  
-          });  
-        }  
-      
-        var tableData = [];  
-        var url = "https://opendata.ecdc.europa.eu/covid19/casedistribution/json";  
-        getAllData(url);  
-          
-      }; 
-
- 
-    tableau.registerConnector(myConnector);
+      schemaCallback([tableSchema]);
+  };
 
 
-    $(document).ready(function() {
-        $("#submitButton").click(function() {
-            tableau.connectionName = "covid19"; 
-            tableau.submit(); 
-        });
-    });
-})();
+
+   $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/", function(data) {
+      //var list = data.json(),       // what method to call? .feature .ts .list..
+   var  tableData = {};
+      console.log(data)
+}
+);
+
+
