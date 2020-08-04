@@ -31,12 +31,13 @@
             // Iterate over the JSON object
             for (var i = 0; i < data.length; i++) {
                 tableData.push({
+                    
                     "dataRep":data[i]["dataRep"],  
              
                     
                 });
             }
-   console.log(tableData)
+    console.log(tableData)
             table.appendRows(tableData);
             doneCallback();
         });
