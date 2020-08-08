@@ -6,9 +6,9 @@
     // Define the schema
     myConnector.getSchema = function(schemaCallback) {
         var cols = [{
-            id: "dataRep",
+            
             alias:"Data",
-            dataType: tableau.dataTypeEnum.date
+            dataType: tableau.dataTypeEnum.string
         }, {
             id: "day",
             alias: "Stan",
@@ -35,8 +35,8 @@
     },
     {
            id: "countriesAndTerritories",
-           alias:"Ogółem zarażeni",
-           dataType: tableau.dataTypeEnum.int
+           alias:"Nazwa kraju",
+           dataType: tableau.dataTypeEnum.string
   },
   {
           id: "geoID",
@@ -49,13 +49,13 @@
           dataType: tableau.dataTypeEnum.string
 },
 {
-          id: "dopData2019",
-          alias:"opData2019i",
+          id: "popData2019",
+          alias:"popData2019",
           dataType: tableau.dataTypeEnum.int
 }, {
           id: "continentExp",
           alias:"kontynent",
-         dataType: tableau.dataTypeEnum.int
+         dataType: tableau.dataTypeEnum.string
 },
  {
          id: "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000",
@@ -77,11 +77,11 @@
         $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/", function(data) {
             //var list = data.json(),       // what method to call? .feature .ts .list..
             var  tableData = [];
-          console.log(data)
+          
             // Iterate over the JSON object
             for (var i = 0; i < data.length; i++) {
                 tableData.push({
-                    "dataRep":data[i]["dataRep"],  // metti in data la response al campo "data"
+                    "dateRep":data[i].dataRep,  // metti in data la response al campo "data"
                     "day":data[i]["day"],
                     "month":data[i]["month"],
                     "years":data[i]["years"],
@@ -95,7 +95,7 @@
                     
                 });
             }
-   console.log(tableData)
+   
             table.appendRows(tableData);
             doneCallback();
         });
