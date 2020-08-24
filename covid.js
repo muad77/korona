@@ -9,7 +9,6 @@
             alias: "Data",
             dataType: tableau.dataTypeEnum.data
         },{
-
             id: "day",
             alias: "Stan",
             dataType: tableau.dataTypeEnum.int
@@ -56,9 +55,9 @@
         },
         ];
         var tableSchema = {
-              id: "BooksSchema",
-              alias: "records",
-              columns: cols
+            id: "LUG",
+            alias: "CovidLUG",
+            columns: cols
         };
 
         schemaCallback([tableSchema]);
@@ -67,7 +66,7 @@
     // Download the data
     myConnector.getData = function(table, doneCallback) {
 
-        $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/", function(resp) {
+        $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json", function(data) {
             //var list = data.json(),       // what method to call? .feature .ts .list..
             
             var tableData = [];
