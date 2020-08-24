@@ -7,7 +7,7 @@
         var cols = [{
             id: "dateRep",
             alias: "Data",
-            dataType: tableau.dataTypeEnum.data
+            dataType: tableau.dataTypeEnum.date
         },{
             id: "day",
             alias: "Stan",
@@ -66,7 +66,7 @@
             //var list = data.json(),       // what method to call? .feature .ts .list..
             
             var tableData = [];
-          
+        console.log(data) 
             // Iterate over the JSON object
             for (var i = 0; i < data.length; i++) {
                 tableData.push({
@@ -83,7 +83,7 @@
                     
                 });
             }
-   
+            console.log(tableData)
             table.appendRows(tableData);
             doneCallback();
         });
