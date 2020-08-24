@@ -48,10 +48,6 @@
             id: "continentExp",
             alias: "kontynent",
             dataType: tableau.dataTypeEnum.string
-        },{
-            id: "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000",
-            alias: "14 dni per 100k",
-            dataType: tableau.dataTypeEnum.int
         },
         ];
         var tableSchema = {
@@ -66,7 +62,7 @@
     // Download the data
     myConnector.getData = function(table, doneCallback) {
 
-        $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json", function(data) {
+        $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/", function(data) {
             //var list = data.json(),       // what method to call? .feature .ts .list..
             
             var tableData = [];
@@ -83,8 +79,7 @@
                     "geoID": data[i]["geoID"],
                     "countryterritoryCode": data[i]["ountryterritoryCode"],
                     "popData2019": data[i]["popData2019"],
-                    "continentExp": data[i]["ontinentExp"],
-                    "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000": data[i]["dCumulative_number_for_14_days_of_COVID-19_cases_per_100000"],
+                    "continentExp": data[i]["ontinentExp"],                  
                     
                 });
             }
