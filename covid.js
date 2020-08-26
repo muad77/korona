@@ -62,10 +62,11 @@
     // Download the data
     myConnector.getData = function(table, doneCallback) {
 
-        $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/", function(data) {
+        $.getJSON("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/", function(resp) {
             //var list = data.json(),       // what method to call? .feature .ts .list..
             
-            var tableData = [];
+            var data = resp.records,
+                 tableData = [];
         console.log(data) 
             // Iterate over the JSON object
             for (var i = 0; i < data.length; i++) {
@@ -83,7 +84,7 @@
                     
                 });
             }
-            console.log(tableData)
+            
             table.appendRows(tableData);
             doneCallback();
         });
